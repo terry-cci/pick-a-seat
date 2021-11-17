@@ -21,8 +21,12 @@ const normalPileCards = ref<StudentCardInfo[]>(
 const boardCards = ref<StudentCardInfo[]>([]);
 
 function confirmSeat(idx: number) {
-  if (normalPileCards.value.length > 0)
+  if (normalPileCards.value.length > 0 && !boardCards.value[idx]) {
     boardCards.value[idx] = normalPileCards.value.pop() as StudentCardInfo;
+  } else if (boardCards.value[idx]) {
+    normalPileCards.value.push(boardCards.value[idx]);
+    delete boardCards.value[idx];
+  }
 }
 </script>
 

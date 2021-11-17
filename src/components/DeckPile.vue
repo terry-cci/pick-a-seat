@@ -28,6 +28,10 @@ const cardStyle = (idx: number) => ({
       :student-info="card.studentInfo"
       class="absolute w-32 h-20 origin-top-left"
       :style="cardStyle(idx)"
+      :shown="false"
+      :class="{
+        'border-gray-700': idx % 2,
+      }"
     />
   </div>
 </template>
