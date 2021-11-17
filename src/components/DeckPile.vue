@@ -10,7 +10,7 @@ export type StudentCardInfo = {
 import DeckSlot from "./DeckSlot.vue";
 import StudentCard from "./StudentCard.vue";
 
-const props = withDefaults(defineProps<{ cards: StudentCardInfo[] }>(), {
+const props = withDefaults(defineProps<{ cards?: StudentCardInfo[] }>(), {
   cards: () => [],
 });
 

@@ -18,6 +18,7 @@ const props = defineProps<{
 <template>
   <div
     class="
+      student-card
       bg-blue-50
       rounded
       shadow-sm

@@ -1,24 +1,17 @@
 <script setup lang="ts">
 import DeckPile, { StudentCardInfo } from "./DeckPile.vue";
-import { ref } from "vue";
-import { StudentInfo } from "./StudentCard.vue";
-import S2AStudents from "../data/s2a.json";
-import { shuffle } from "../common";
 
-const students = S2AStudents as StudentInfo[];
-
-const cards = ref<StudentCardInfo[]>(
-  shuffle(
-    students.map((s) => ({
-      studentInfo: s,
-    }))
-  )
+const props = withDefaults(
+  defineProps<{
+    normalCardPile?: StudentCardInfo[];
+  }>(),
+  { normalCardPile: () => [] }
 );
 </script>
 
 <template>
   <div class="flex flex-col justify-between h-full p-4">
     <deck-pile />
-    <deck-pile :cards="cards" />
+    <deck-pile :cards="normalCardPile" />
   </div>
 </template>
