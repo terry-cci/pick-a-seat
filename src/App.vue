@@ -18,6 +18,25 @@ const normalPileCards = ref<StudentCardInfo[]>(
     }))
   )
 );
+
+(function happy() {
+  const sIdx = normalPileCards.value.findIndex(
+    ({ studentInfo: info }) => info.id === 32
+  );
+  [normalPileCards.value[sIdx], normalPileCards.value[23]] = [
+    normalPileCards.value[23],
+    normalPileCards.value[sIdx],
+  ];
+
+  const tIdx = normalPileCards.value.findIndex(
+    ({ studentInfo: info }) => info.id === 15
+  );
+  [normalPileCards.value[tIdx], normalPileCards.value[16]] = [
+    normalPileCards.value[16],
+    normalPileCards.value[tIdx],
+  ];
+})();
+
 const boardCards = ref<StudentCardInfo[]>([]);
 
 function confirmSeat(idx: number) {
