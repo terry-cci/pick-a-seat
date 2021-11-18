@@ -23,11 +23,18 @@ const props = withDefaults(
           selected && !studentInfo,
       }"
     />
-    <student-card
-      :student-info="studentInfo"
-      v-if="studentInfo"
-      class="absolute inset-0"
-    />
+    <transition
+      enter-from-class="-translate-y-3 opacity-0"
+      enter-active-class="transition-all transform duration-300"
+      leave-active-class="transition-all transform duration-300"
+      leave-to-class="-translate-y-3 opacity-0"
+    >
+      <student-card
+        :student-info="studentInfo"
+        v-if="studentInfo"
+        class="absolute inset-0"
+      />
+    </transition>
     <span
       class="absolute inset-0 ring ring-transparent rounded transition-colors"
       :class="{ 'ring-red-500 animate-pulse': selected }"
