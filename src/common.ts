@@ -1,3 +1,7 @@
+import seedrandom from "seedrandom";
+
+const random = seedrandom();
+
 export function shuffle<T>(array: T[]): T[] {
   let currentIndex = array.length,
     randomIndex;
@@ -5,7 +9,7 @@ export function shuffle<T>(array: T[]): T[] {
   // While there remain elements to shuffle...
   while (currentIndex != 0) {
     // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
+    randomIndex = Math.floor(random() * currentIndex);
     currentIndex--;
 
     // And swap it with the current element.
