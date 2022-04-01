@@ -19,24 +19,6 @@ const normalPileCards = ref<StudentCardInfo[]>(
   )
 );
 
-(function theirHappy() {
-  const aIdx = normalPileCards.value.findIndex(
-    ({ studentInfo: info }) => info.id === 33
-  );
-  [normalPileCards.value[aIdx], normalPileCards.value[29]] = [
-    normalPileCards.value[29],
-    normalPileCards.value[aIdx],
-  ];
-
-  const kIdx = normalPileCards.value.findIndex(
-    ({ studentInfo: info }) => info.id === 12
-  );
-  [normalPileCards.value[kIdx], normalPileCards.value[25]] = [
-    normalPileCards.value[25],
-    normalPileCards.value[kIdx],
-  ];
-})();
-
 // (function happy() {
 //   const sIdx = normalPileCards.value.findIndex(
 //     ({ studentInfo: info }) => info.id === 32
